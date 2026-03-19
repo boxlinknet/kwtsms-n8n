@@ -4,7 +4,7 @@
  * Authentication is body-based: username and password are sent
  * as part of the POST request body (not via headers).
  *
- * @see https://www.kwtsms.com/developers.html
+ * @see https://www.kwtsms.com/integrations.html
  */
 import {
 	ICredentialTestRequest,
@@ -17,7 +17,7 @@ export class KwtSmsApi implements ICredentialType {
 
 	displayName = 'kwtSMS API';
 
-	documentationUrl = 'https://www.kwtsms.com/developers.html';
+	documentationUrl = 'https://www.kwtsms.com/integrations.html';
 
 	properties: INodeProperties[] = [
 		{

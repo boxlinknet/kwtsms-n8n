@@ -13,7 +13,7 @@
  *   - ./descriptions/ (resource and operation parameter definitions)
  *   - ../../credentials/KwtSmsApi.credentials.ts (credential definition)
  *
- * @see https://www.kwtsms.com/developers.html
+ * @see https://www.kwtsms.com/integrations.html
  */
 import type {
 	IExecuteFunctions,
