@@ -1,0 +1,17 @@
+{
+	"node": "n8n-nodes-kwtsms.kwtSms",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Communication"],
+	"resources": {
+		"primaryDocumentation": [
+			{
+				"url": "https://www.kwtsms.com/developers.html"
+			}
+		]
+	},
+	"alias": ["sms", "text message", "kwtsms", "kuwait", "otp", "bulk sms"],
+	"subcategories": {
+		"Communication": ["SMS"]
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"name": "n8n-nodes-kwtsms",
+	"version": "0.1.0",
+	"description": "n8n community node for kwtSMS SMS gateway. Send SMS, check balance, validate numbers, manage sender IDs.",
+	"license": "MIT",
+	"homepage": "https://www.kwtsms.com/developers.html",
+	"author": {
+		"name": "kwtSMS",
+		"email": "support@kwtsms.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kwtsms/n8n-nodes-kwtsms.git"
+	},
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"sms",
+		"kwtsms",
+		"kuwait",
+		"messaging",
+		"bulk-sms",
+		"otp"
+	],
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc && gulp build:icons",
+		"dev": "tsc --watch",
+		"lint": "eslint nodes credentials --ext .ts",
+		"lintfix": "eslint nodes credentials --ext .ts --fix",
+		"prepublishOnly": "npm run build"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/KwtSmsApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/KwtSms/KwtSms.node.js"
+		]
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^7.0.0",
+		"@typescript-eslint/parser": "^7.0.0",
+		"eslint": "^8.56.0",
+		"gulp": "^4.0.2",
+		"n8n-workflow": "*",
+		"typescript": "~5.4.0"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
