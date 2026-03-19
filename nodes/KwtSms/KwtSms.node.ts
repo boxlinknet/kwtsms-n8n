@@ -127,9 +127,15 @@ export class KwtSms implements INodeType {
 				if (resource === 'sms' && operation === 'send') {
 					const rawTo = this.getNodeParameter('to', i) as string;
 					const rawMessage = this.getNodeParameter('message', i) as string;
-					const senderId = this.getNodeParameter('senderId', i) as string;
+					let senderId = this.getNodeParameter('senderId', i) as string;
 					const additionalFields = this.getNodeParameter('additionalFields', i, {}) as IDataObject;
 					const testMode = (additionalFields.testMode as boolean) ?? false;
+
+					// Fall back to default sender ID from credentials if not specified
+					if (!senderId) {
+						const credentials = await this.getCredentials('kwtSmsApi');
+						senderId = (credentials.defaultSenderId as string) || 'KWT-SMS';
+					}
 
 					// Pre-send pipeline: normalize, clean, deduplicate
 					const normalizedNumbers = rawTo

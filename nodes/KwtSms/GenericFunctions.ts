@@ -80,21 +80,38 @@ export async function kwtSmsApiRequest(
 		},
 		body,
 		json: true,
+		// Do not throw on non-2xx status codes so we can parse the error response
+		simple: false,
+		resolveWithFullResponse: false,
 	};
 
-	const response = await this.helpers.request(options);
+	let response: IDataObject;
+
+	try {
+		response = await this.helpers.request(options) as IDataObject;
+	} catch (err) {
+		// If request itself failed, try to parse the error body
+		const error = err as Error & { statusCode?: number; error?: IDataObject };
+		if (error.error && typeof error.error === 'object' && error.error.result === 'ERROR') {
+			response = error.error;
+		} else {
+			throw new NodeApiError(this.getNode(), {
+				message: `kwtSMS API request failed: ${error.message}`,
+			});
+		}
+	}
 
 	if (response && response.result === 'ERROR') {
-		const errorCode = (response.errorCode as string) || (response.code as string) || 'UNKNOWN';
+		const errorCode = (response.code as string) || (response.errorCode as string) || 'UNKNOWN';
 		const errorMessage = getErrorMessage(errorCode);
 
 		throw new NodeApiError(this.getNode(), {
-			message: errorMessage,
-			description: `kwtSMS API error ${errorCode}: ${errorMessage}`,
+			message: `${errorCode}: ${errorMessage}`,
+			description: errorMessage,
 		});
 	}
 
-	return response as IDataObject;
+	return response;
 }
 
 /**

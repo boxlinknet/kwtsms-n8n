@@ -72,9 +72,10 @@ export const smsFields: INodeProperties[] = [
 		name: 'senderId',
 		type: 'string',
 		required: true,
-		default: '={{$credentials.defaultSenderId}}',
+		default: '',
+		placeholder: 'KWT-SMS',
 		description:
-			'Sender ID for the message. Must be pre-approved on your kwtSMS account.',
+			'Sender ID for the message. Must be pre-approved on your kwtSMS account. Leave empty to use the default from credentials.',
 		displayOptions: {
 			show: {
 				resource: ['sms'],

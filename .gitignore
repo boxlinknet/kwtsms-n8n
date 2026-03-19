@@ -29,6 +29,7 @@ docs/
 .claude/
 CLAUDE.md
 .worktrees/
+.playwright-cli/
 docker/
 napkin.md
 *.log
