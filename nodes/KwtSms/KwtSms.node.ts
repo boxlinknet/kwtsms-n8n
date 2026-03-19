@@ -130,8 +130,8 @@ export class KwtSms implements INodeType {
 					const rawTo = this.getNodeParameter('to', i) as string;
 					const rawMessage = this.getNodeParameter('message', i) as string;
 					let senderId = this.getNodeParameter('senderId', i) as string;
+					const testMode = this.getNodeParameter('testMode', i, true) as boolean;
 					const additionalFields = this.getNodeParameter('additionalFields', i, {}) as IDataObject;
-					const testMode = (additionalFields.testMode as boolean) ?? false;
 
 					// Fall back to default sender ID from credentials if not specified
 					if (!senderId) {

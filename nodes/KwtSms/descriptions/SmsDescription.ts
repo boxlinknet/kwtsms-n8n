@@ -84,6 +84,20 @@ export const smsFields: INodeProperties[] = [
 		},
 	},
 	{
+		displayName: 'Test Mode',
+		name: 'testMode',
+		type: 'boolean',
+		default: true,
+		description:
+			'Send in test mode. Message enters queue but is not delivered. No credits consumed. Disable for production sends.',
+		displayOptions: {
+			show: {
+				resource: ['sms'],
+				operation: ['send'],
+			},
+		},
+	},
+	{
 		displayName: 'Additional Fields',
 		name: 'additionalFields',
 		type: 'collection',
@@ -96,14 +110,6 @@ export const smsFields: INodeProperties[] = [
 			},
 		},
 		options: [
-			{
-				displayName: 'Test Mode',
-				name: 'testMode',
-				type: 'boolean',
-				default: true,
-				description:
-					'Send in test mode. Message enters queue but is not delivered. No credits consumed. Disable for production sends.',
-			},
 			{
 				displayName: 'Language',
 				name: 'language',
