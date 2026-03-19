@@ -1,5 +1,10 @@
 # n8n-nodes-kwtsms
 
+[![npm version](https://img.shields.io/npm/v/n8n-nodes-kwtsms.svg)](https://www.npmjs.com/package/n8n-nodes-kwtsms)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![n8n community node](https://img.shields.io/badge/n8n-community%20node-ff6d5a.svg)](https://docs.n8n.io/integrations/community-nodes/)
+[![kwtSMS](https://img.shields.io/badge/kwtSMS-gateway-FFA200.svg)](https://www.kwtsms.com)
+
 n8n community node for the [kwtSMS](https://www.kwtsms.com) SMS gateway. Send SMS messages, check balance, validate numbers, and manage sender IDs directly from your n8n workflows.
 
 [kwtSMS](https://www.kwtsms.com) is a Kuwait-based SMS gateway with coverage across 220+ countries, pay-as-you-go pricing, and built-in test mode. It supports both English and Arabic messages with transactional sender IDs that bypass DND for OTP delivery.

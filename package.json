@@ -10,7 +10,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/kwtsms/n8n-nodes-kwtsms.git"
+		"url": "https://github.com/boxlinknet/kwtsms-n8n.git"
 	},
 	"keywords": [
 		"n8n-community-node-package",
