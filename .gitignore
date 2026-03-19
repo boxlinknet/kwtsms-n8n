@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build
+dist/
+*.js.map
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+
+# Project local
+tests/
+docs/
+.claude/
+CLAUDE.md
+.worktrees/
+docker/
+napkin.md
+*.log
+*.zip
+
+# Lock files
+Gemfile.lock
