@@ -65,7 +65,6 @@ You need a kwtSMS API account:
 - **Message**: SMS text. English: 160 chars/page. Arabic: 70 chars/page. Max 7 pages.
 - **Sender ID**: Must be pre-approved on your kwtSMS account.
 - **Test Mode** (optional): Send without delivering or consuming credits.
-- **Language** (optional): Force encoding to English (GSM-7) or Arabic (Unicode). Default: auto-detect.
 
 ### Account
 
@@ -113,7 +112,6 @@ The node maps all 33 kwtSMS error codes to user-friendly messages. Common errors
 
 ## Resources
 
-- [kwtSMS API Documentation](https://www.kwtsms.com/developers.html)
 - [kwtSMS Website](https://www.kwtsms.com)
 - [kwtSMS Support](https://www.kwtsms.com/support.html)
 - [n8n Community Nodes Documentation](https://docs.n8n.io/integrations/community-nodes/)
