@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-kwtsms",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "n8n community node for kwtSMS SMS gateway. Send SMS, check balance, validate numbers, manage sender IDs.",
 	"license": "MIT",
 	"homepage": "https://www.kwtsms.com/integrations.html",

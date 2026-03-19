@@ -66,15 +66,10 @@ export async function kwtSmsApiRequest(
 	endpoint: string,
 	body: IDataObject = {},
 ): Promise<IDataObject> {
-	const credentials = await this.getCredentials('kwtSmsApi');
-
-	body.username = credentials.username as string;
-	body.password = credentials.password as string;
-
 	let response: IDataObject;
 
 	try {
-		response = await this.helpers.httpRequest({
+		response = await this.helpers.httpRequestWithAuthentication.call(this, 'kwtSmsApi', {
 			method,
 			url: `https://www.kwtsms.com/API${endpoint}`,
 			headers: {

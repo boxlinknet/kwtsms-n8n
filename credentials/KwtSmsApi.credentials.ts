@@ -6,7 +6,8 @@
  *
  * @see https://www.kwtsms.com/integrations.html
  */
-import {
+import type {
+	IAuthenticateGeneric,
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
@@ -48,6 +49,16 @@ export class KwtSmsApi implements ICredentialType {
 				'Default Sender ID for outgoing messages. KWT-SMS is for testing only.',
 		},
 	];
+
+	authenticate: IAuthenticateGeneric = {
+		type: 'generic',
+		properties: {
+			body: {
+				username: '={{$credentials.username}}',
+				password: '={{$credentials.password}}',
+			},
+		},
+	};
 
 	test: ICredentialTestRequest = {
 		request: {
