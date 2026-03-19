@@ -23,6 +23,8 @@ import type {
 	IDataObject,
 } from 'n8n-workflow';
 
+import { sleep } from 'n8n-workflow';
+
 import {
 	kwtSmsApiRequest,
 	normalizePhone,
@@ -357,16 +359,3 @@ export class KwtSms implements INodeType {
 	}
 }
 
-/**
- * Async sleep helper.
- *
- * @param ms - Duration in milliseconds.
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-declare function setTimeout(callback: (...args: any[]) => void, ms: number): any;
-
-function sleep(ms: number): Promise<void> {
-	return new Promise<void>((resolve) => {
-		setTimeout(resolve, ms);
-	});
-}

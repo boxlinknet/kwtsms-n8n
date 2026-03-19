@@ -71,34 +71,25 @@ export async function kwtSmsApiRequest(
 	body.username = credentials.username as string;
 	body.password = credentials.password as string;
 
-	const options = {
-		method,
-		uri: `https://www.kwtsms.com/API${endpoint}`,
-		headers: {
-			'Content-Type': 'application/json',
-			'Accept': 'application/json',
-		},
-		body,
-		json: true,
-		// Do not throw on non-2xx status codes so we can parse the error response
-		simple: false,
-		resolveWithFullResponse: false,
-	};
-
 	let response: IDataObject;
 
 	try {
-		response = await this.helpers.request(options) as IDataObject;
+		response = await this.helpers.httpRequest({
+			method,
+			url: `https://www.kwtsms.com/API${endpoint}`,
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+			},
+			body,
+			returnFullResponse: false,
+			ignoreHttpStatusErrors: true,
+		}) as IDataObject;
 	} catch (err) {
-		// If request itself failed, try to parse the error body
-		const error = err as Error & { statusCode?: number; error?: IDataObject };
-		if (error.error && typeof error.error === 'object' && error.error.result === 'ERROR') {
-			response = error.error;
-		} else {
-			throw new NodeApiError(this.getNode(), {
-				message: `kwtSMS API request failed: ${error.message}`,
-			});
-		}
+		const error = err as Error;
+		throw new NodeApiError(this.getNode(), {
+			message: `kwtSMS API request failed: ${error.message}`,
+		});
 	}
 
 	if (response && response.result === 'ERROR') {
