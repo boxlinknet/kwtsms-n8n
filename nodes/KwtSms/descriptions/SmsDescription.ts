@@ -100,9 +100,9 @@ export const smsFields: INodeProperties[] = [
 				displayName: 'Test Mode',
 				name: 'testMode',
 				type: 'boolean',
-				default: false,
+				default: true,
 				description:
-					'Send in test mode. Message enters queue but is not delivered. No credits consumed.',
+					'Send in test mode. Message enters queue but is not delivered. No credits consumed. Disable for production sends.',
 			},
 			{
 				displayName: 'Language',
