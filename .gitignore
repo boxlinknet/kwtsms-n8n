@@ -11,10 +11,12 @@ dist/
 .vscode/
 *.swp
 *.swo
+*.sublime-*
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Environment
 .env
@@ -24,16 +26,25 @@ Thumbs.db
 !.env.example
 
 # Project local
+test/
 tests/
 docs/
 .claude/
 CLAUDE.md
 .worktrees/
 .playwright-cli/
+.playwright/
+.superpowers/
 docker/
 napkin.md
 *.log
 *.zip
+
+# TypeScript
+*.tsbuildinfo
+
+# npm
+*.tgz
 
 # Lock files
 Gemfile.lock
