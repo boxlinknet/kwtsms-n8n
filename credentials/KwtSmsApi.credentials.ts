@@ -18,6 +18,8 @@ export class KwtSmsApi implements ICredentialType {
 
 	displayName = 'kwtSMS API';
 
+	icon = 'file:kwtsms.svg' as const;
+
 	documentationUrl = 'https://www.kwtsms.com/integrations.html';
 
 	properties: INodeProperties[] = [
@@ -68,10 +70,6 @@ export class KwtSmsApi implements ICredentialType {
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept': 'application/json',
-			},
-			body: {
-				username: '={{$credentials.username}}',
-				password: '={{$credentials.password}}',
 			},
 		},
 	};

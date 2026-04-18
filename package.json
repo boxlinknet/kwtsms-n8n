@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-kwtsms",
-	"version": "0.1.4",
+	"version": "0.2.0",
 	"description": "n8n community node for kwtSMS SMS gateway. Send SMS, check balance, validate numbers, manage sender IDs.",
 	"license": "MIT",
 	"homepage": "https://www.kwtsms.com/integrations.html",
@@ -22,7 +22,9 @@
 		"bulk-sms",
 		"otp"
 	],
-	"main": "index.js",
+	"engines": {
+		"node": ">=18"
+	},
 	"scripts": {
 		"build": "tsc && gulp build:icons",
 		"dev": "tsc --watch",
@@ -31,7 +33,9 @@
 		"prepublishOnly": "npm run build"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"LICENSE",
+		"README.md"
 	],
 	"n8n": {
 		"n8nNodesApiVersion": 1,
@@ -51,6 +55,6 @@
 		"typescript": "~5.9.3"
 	},
 	"peerDependencies": {
-		"n8n-workflow": "*"
+		"n8n-workflow": "^1.0.0"
 	}
 }

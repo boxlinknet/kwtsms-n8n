@@ -24,7 +24,7 @@ export const validationOperations: INodeProperties[] = [
 			{
 				name: 'Validate Numbers',
 				value: 'validateNumbers',
-				description: 'Validate phone numbers before sending',
+				description: 'Validate phone numbers',
 				action: 'Validate phone numbers',
 			},
 		],

@@ -16,7 +16,9 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install --ignore-scripts
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run lint
       - run: npm run build
       - run: npm publish --provenance --access public
         env:

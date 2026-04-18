@@ -71,7 +71,6 @@ export const smsFields: INodeProperties[] = [
 		displayName: 'Sender ID',
 		name: 'senderId',
 		type: 'string',
-		required: true,
 		default: '',
 		placeholder: 'KWT-SMS',
 		description:
@@ -96,42 +95,5 @@ export const smsFields: INodeProperties[] = [
 				operation: ['send'],
 			},
 		},
-	},
-	{
-		displayName: 'Additional Fields',
-		name: 'additionalFields',
-		type: 'collection',
-		placeholder: 'Add Field',
-		default: {},
-		displayOptions: {
-			show: {
-				resource: ['sms'],
-				operation: ['send'],
-			},
-		},
-		options: [
-			{
-				displayName: 'Language',
-				name: 'language',
-				type: 'options',
-				options: [
-					{
-						name: 'Auto Detect',
-						value: 'auto',
-					},
-					{
-						name: 'English (GSM-7)',
-						value: 'english',
-					},
-					{
-						name: 'Arabic (Unicode)',
-						value: 'arabic',
-					},
-				],
-				default: 'auto',
-				description:
-					'Message encoding. Auto detect is recommended.',
-			},
-		],
 	},
 ];

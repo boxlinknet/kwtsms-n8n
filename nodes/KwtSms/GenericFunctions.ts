@@ -66,7 +66,7 @@ export async function kwtSmsApiRequest(
 	endpoint: string,
 	body: IDataObject = {},
 ): Promise<IDataObject> {
-	let response: IDataObject;
+	let response: unknown;
 
 	try {
 		response = await this.helpers.httpRequestWithAuthentication.call(this, 'kwtSmsApi', {
@@ -79,7 +79,7 @@ export async function kwtSmsApiRequest(
 			body,
 			returnFullResponse: false,
 			ignoreHttpStatusErrors: true,
-		}) as IDataObject;
+		});
 	} catch (err) {
 		const error = err as Error;
 		throw new NodeApiError(this.getNode(), {
@@ -87,8 +87,22 @@ export async function kwtSmsApiRequest(
 		});
 	}
 
-	if (response && response.result === 'ERROR') {
-		const errorCode = (response.code as string) || (response.errorCode as string) || 'UNKNOWN';
+	if (
+		response === null ||
+		typeof response !== 'object' ||
+		Array.isArray(response) ||
+		typeof (response as IDataObject).result !== 'string'
+	) {
+		throw new NodeApiError(this.getNode(), {
+			message: 'Malformed response from kwtSMS API',
+			description: 'Expected a JSON object with a string "result" field. The gateway may be returning an error page or non-JSON content.',
+		});
+	}
+
+	const payload = response as IDataObject;
+
+	if (payload.result === 'ERROR') {
+		const errorCode = (payload.code as string) || (payload.errorCode as string) || 'UNKNOWN';
 		const errorMessage = getErrorMessage(errorCode);
 
 		throw new NodeApiError(this.getNode(), {
@@ -97,7 +111,7 @@ export async function kwtSmsApiRequest(
 		});
 	}
 
-	return response;
+	return payload;
 }
 
 /**

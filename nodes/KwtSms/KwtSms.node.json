@@ -10,8 +10,5 @@
 			}
 		]
 	},
-	"alias": ["sms", "text message", "kwtsms", "kuwait", "otp", "bulk sms"],
-	"subcategories": {
-		"Communication": ["SMS"]
-	}
+	"alias": ["sms", "text message", "kwtsms", "kuwait", "otp", "bulk sms"]
 }
